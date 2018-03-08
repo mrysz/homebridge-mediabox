@@ -1,17 +1,18 @@
 {
   "name": "homebridge-mediabox",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Mediabox",
   "main": "index.js",
   "keywords": [
-    "homebridge-mediabox",
+    "homebridge-plugin",
+    "mediabox",
     "tv"
   ],
   "author": "Mariusz Rysz",
   "homepage": "https://github.com/mrysz/homebridge-mediabox",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrysz/homebridge-mediabox"
+    "url": "git+https://github.com/mrysz/homebridge-mediabox.git"
   },
   "bugs": {
     "url": "https://github.com/mrysz/homebridge-mediabox/issues"
@@ -20,8 +21,15 @@
     "node": ">=6.4.0",
     "homebridge": ">=0.4.0"
   },
-  "license": "GNU",
+  "license": "GPL-3.0",
   "dependencies": {
-    "request": "^2.83.0"
+    "soap": "^0.23.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

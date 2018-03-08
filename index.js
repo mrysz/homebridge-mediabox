@@ -1,7 +1,8 @@
 "use strict";
 
-const request = require('request');
 const logger = require('./lib/logger');
+const soap = require('./lib/soap');
+const multibox = require('./lib/multibox');
 let Service, Characteristic;
 
 module.exports = function (homebridge) {
@@ -11,20 +12,25 @@ module.exports = function (homebridge) {
     homebridge.registerAccessory("homebridge-mediabox", "Mediabox", Mediabox);
 };
 
-/**
- * Mediabox
- */
 function Mediabox(log, config) {
     logger.handler = log;
 
     this.name = config.name || 'Mediabox';
+    this.ip = config.port || 8080;
     this.ip = config.ip;
+    this.uuid = '1911f690-1dd2-11b2-ae1a-6863598a96c2';
 
     if (!this.ip) {
         throw new Error("No 'IP' config value");
     }
 
+    if (!this.uuid) {
+        throw new Error("No 'UUID' config value");
+    }
+
+    this.sensors = [];
     this.powerState = false;
+    this.url = "http://" + this.ip + ":" + this.port + "/upnpfun/ctrl/uuid_" + this.uuid + "/04";
 }
 
 Mediabox.prototype = {
@@ -33,8 +39,11 @@ Mediabox.prototype = {
         callback(null, this.powerState);
     },
 
-    setPowerState: function(powerState, callback) {
+    setPowerState: function (powerState, callback) {
+        logger.log('info', 'Set to' + powerState);
         this.powerState = powerState;
+
+        soap.send(multibox['POWER']);
 
         callback();
     },
