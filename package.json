@@ -1,0 +1,27 @@
+{
+  "name": "homebridge-mediabox",
+  "version": "0.1.0",
+  "description": "Mediabox",
+  "main": "index.js",
+  "keywords": [
+    "homebridge-mediabox",
+    "tv"
+  ],
+  "author": "Mariusz Rysz",
+  "homepage": "https://github.com/mrysz/homebridge-mediabox",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrysz/homebridge-mediabox"
+  },
+  "bugs": {
+    "url": "https://github.com/mrysz/homebridge-mediabox/issues"
+  },
+  "engines": {
+    "node": ">=6.4.0",
+    "homebridge": ">=0.4.0"
+  },
+  "license": "GNU",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
