@@ -16,9 +16,9 @@ function Mediabox(log, config) {
     logger.handler = log;
 
     this.name = config.name || 'Mediabox';
-    this.ip = config.port || 8080;
+    this.port = config.port || 8080;
     this.ip = config.ip;
-    this.uuid = '1911f690-1dd2-11b2-ae1a-6863598a96c2';
+    this.uuid = config.uuid;
 
     if (!this.ip) {
         throw new Error("No 'IP' config value");
@@ -36,14 +36,17 @@ function Mediabox(log, config) {
 Mediabox.prototype = {
 
     getPowerState: function (callback) {
+        logger.log('info', 'Get is ' + this.powerState);
         callback(null, this.powerState);
     },
 
     setPowerState: function (powerState, callback) {
-        logger.log('info', 'Set to' + powerState);
+        logger.log('info', 'Set to ' + powerState);
         this.powerState = powerState;
 
-        soap.send(multibox['POWER']);
+        soap
+            .init(this.url)
+            .send(multibox['POWER']);
 
         callback();
     },

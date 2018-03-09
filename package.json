@@ -1,6 +1,6 @@
 {
   "name": "homebridge-mediabox",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Mediabox",
   "main": "index.js",
   "keywords": [
@@ -23,7 +23,6 @@
   },
   "license": "GPL-3.0",
   "dependencies": {
-    "soap": "^0.23.0",
     "xmlhttprequest": "^1.8.0"
   },
   "directories": {
