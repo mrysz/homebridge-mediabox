@@ -1,9 +1,9 @@
 # Homebridge-mediabox
 
-**[Homebridge](https://github.com/nfarina/homebridge) plugin for switch _on_ and _off_ Mediabox from NC+.**
+**[Homebridge](https://github.com/nfarina/homebridge) plugin to switch _on_ and _off_ Mediabox from NC+.**
 
-**Warning!** It is impossible to read current Mediabox state, its unknown is it _on_ or _off_, 
-so this plugins cannot be sync with current Mediabox state (e.g. Mediabox can be _off_, and switch can be _on_, 
+**Warning!** Its impossible to read current Mediabox state, its unknown is it _on_ or _off_, 
+so this plugins cannot be synchronized with current Mediabox state (e.g. Mediabox can be _off_, and switch can be _on_, 
 and when you press the switch, its state change to _off_, but Mediabox turns _on_).     
 
 ## Instalation
